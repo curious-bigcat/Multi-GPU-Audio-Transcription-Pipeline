@@ -6,7 +6,6 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
 
 ## Table of Contents
 - [Overview](#overview)
-- [Architecture](#architecture)
 - [Prerequisites](#prerequisites)
 - [Snowflake Setup](#snowflake-setup)
 - [Running the Notebook](#running-the-notebook)
@@ -26,21 +25,6 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
   - Transformers (HuggingFace)
   - Streamlit (optional UI)
   - Python (Jupyter notebook)
-
----
-
-## Architecture
-
-```mermaid
-graph TD
-  A[Upload MP4 files to Snowflake Stage] --> B[Convert MP4 to MP3]
-  B --> C[Upload MP3 to Stage]
-  C --> D[Ray Distributed Audio Dataset]
-  D --> E[Whisper Model Inference (Hindi)]
-  E --> F[Store Transcriptions in Snowflake Table]
-  F --> G[Translate Hindi to English (GPT-4.1)]
-  G --> H[Store Translations in Final Table]
-```
 
 ---
 
