@@ -7,6 +7,7 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
 ## Table of Contents
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
+- [Detailed Step-by-Step Instructions](#detailed-step-by-step-instructions)
 - [Snowflake Setup](#snowflake-setup)
 - [Running the Notebook](#running-the-notebook)
 - [Pipeline Steps](#pipeline-steps)
@@ -39,6 +40,29 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
   - `snowflake-snowpark-python`, `snowflake-ml-python`, `transformers`, `torch`, `ray`, `ffmpeg`, `pandas`, `numpy`, `streamlit`
 - **FFmpeg** installed and available in PATH
 - **HuggingFace Transformers** and OpenAI Whisper model access
+
+---
+
+## Detailed Step-by-Step Instructions
+
+1. **Execute the SQL setup file in Snowflake worksheet**
+   - Open `setup.sql` in your Snowflake worksheet and run all statements to create the required database, schema, warehouse, compute pool, and network integration.
+
+2. **Import the notebook file and run container on the created GPU pool compute**
+   - Import `Audio Processing - Distributed Inferencing v2.ipynb` into your Snowflake ML runtime or compatible Jupyter environment.
+   - Ensure the runtime/container is configured to use the GPU compute pool created in step 1.
+
+3. **Enable network external access integration for the notebook**
+   - Make sure the external access integration (created by the SQL script) is enabled for your notebook/container session. This allows model downloads and outbound internet access.
+
+4. **Execute the first 2 cells in the notebook**
+   - Run the initial cells to import packages and set up the Snowflake session and stage.
+
+5. **Upload all video files to the stage created**
+   - Upload your MP4 video/audio files to the Snowflake stage (`AUDIO_FILES_STAGE`) created by the setup script. This can be done via the Snowflake UI, CLI, or programmatically.
+
+6. **Run the rest of the cells in the notebook**
+   - Continue executing the remaining cells in order to process, transcribe, and store results. The pipeline will handle conversion, distributed inference, and result storage.
 
 ---
 
