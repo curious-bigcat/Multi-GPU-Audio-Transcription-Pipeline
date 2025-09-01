@@ -1,17 +1,8 @@
 <!--
-  Project Logos: For best results, use SVGs from official sources. Adjust height for visual balance.
-  If you update logos, ensure they are public domain or have proper attribution.
+  Project Technologies: Snowflake, Ray, HuggingFace, OpenAI
 -->
-<p align="center">
-  <a href="https://commons.wikimedia.org/wiki/File:Snowflake_Logo.svg#/media/File:Snowflake_Logo.svg" title="Snowflake (Wikimedia Commons)">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Snowflake_Logo.svg" alt="Snowflake Logo" height="60" style="margin:0 18px;vertical-align:middle;"/>
-  </a>
-  <img src="https://raw.githubusercontent.com/ray-project/ray/master/doc/source/images/ray_logo.png" alt="Ray Logo" height="60" style="margin:0 18px;vertical-align:middle;"/>
-  <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace Logo" height="60" style="margin:0 18px;vertical-align:middle;"/>
-  <a href="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" title="OpenAI (Wikimedia Commons)">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI Logo" height="60" style="margin:0 18px;vertical-align:middle;"/>
-  </a>
-</p>
+
+<p align="center"><b>Snowflake | Ray | HuggingFace | OpenAI</b></p>
 
 <p align="center" style="font-size: 0.9em;">
   <a href="https://commons.wikimedia.org/wiki/File:Snowflake_Logo.svg#/media/File:Snowflake_Logo.svg">Snowflake Logo</a> |
