@@ -4,10 +4,6 @@
 
 <p align="center"><b>Snowflake | Ray | HuggingFace | OpenAI</b></p>
 
-<p align="center" style="font-size: 0.9em;">
-  <a href="https://commons.wikimedia.org/wiki/File:Snowflake_Logo.svg#/media/File:Snowflake_Logo.svg">Snowflake Logo</a> |
-  <a href="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg">OpenAI Logo</a>
-</p>
 
 <h1 align="center">Distributed Multi-Node, Multi-GPU Media Transcription Pipeline</h1>
 
