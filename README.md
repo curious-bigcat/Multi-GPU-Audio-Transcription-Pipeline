@@ -1,40 +1,49 @@
-# Distributed Multi-Node, Multi-GPU Media Transcription Pipeline
+<p align="center">
+  <img src="https://seeklogo.com/images/S/snowflake-logo-CE20F1A766-seeklogo.com.png" alt="Snowflake" height="60"/>
+  <img src="https://raw.githubusercontent.com/ray-project/ray/master/doc/source/images/ray_logo.png" alt="Ray" height="60"/>
+  <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace" height="60"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="OpenAI" height="60"/>
+</p>
 
-This project demonstrates a scalable, distributed media (audio and video) transcription pipeline using Snowflake, Ray, and the OpenAI Whisper model. It is designed for large-scale, multi-node, multi-GPU inferencing, and includes Hindi-to-English translation using GPT-4.1. The workflow is implemented in a Jupyter notebook and is supported by a Snowflake SQL setup script.
+<h1 align="center">Distributed Multi-Node, Multi-GPU Media Transcription Pipeline</h1>
+
+<p align="center">
+  <b>Scalable, distributed audio & video transcription using <a href="https://www.snowflake.com/">Snowflake</a>, <a href="https://www.ray.io/">Ray</a>, <a href="https://huggingface.co/openai/whisper">OpenAI Whisper</a>, and <a href="https://huggingface.co/">HuggingFace</a>.</b>
+</p>
 
 ---
 
 ## Table of Contents
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
-- [Detailed Step-by-Step Instructions](#detailed-step-by-step-instructions)
+- [Implementation Steps](#implementation-steps)
 - [Snowflake Setup](#snowflake-setup)
 - [Running the Notebook](#running-the-notebook)
 - [Pipeline Steps](#pipeline-steps)
 - [Translation Step](#translation-step)
 - [Notes & Troubleshooting](#notes--troubleshooting)
+- [References](#references)
 
 ---
 
 ## Overview
 
-- **Goal:** Transcribe large volumes of Hindi audio (from video files) using distributed GPU resources, and translate the transcriptions to English.
+- **Goal:** Transcribe large volumes of Hindi audio and video using distributed GPU resources, and translate the transcriptions to English.
 - **Technologies:**
-  - Snowflake (stages, compute pools, external access integration)
-  - Ray (distributed data processing)
-  - OpenAI Whisper (speech-to-text)
-  - Transformers (HuggingFace)
-  - Streamlit (optional UI)
-  - Python (Jupyter notebook)
+  - <a href="https://www.snowflake.com/">Snowflake</a> (stages, compute pools, external access integration)
+  - <a href="https://www.ray.io/">Ray</a> (distributed data processing)
+  - <a href="https://huggingface.co/openai/whisper">OpenAI Whisper</a> (speech-to-text)
+  - <a href="https://huggingface.co/">HuggingFace Transformers</a>
+  - <a href="https://www.python.org/">Python</a> (Jupyter notebook)
 
 ---
 
 ## Prerequisites
 
-- **Snowflake Account** with access to:
+- **Snowflake Account** with:
   - Compute pools (GPU)
   - External access integration
-  - Sufficient privileges to create databases, schemas, warehouses, and integrations
+  - Privileges to create databases, schemas, warehouses, and integrations
 - **Python Environment** with:
   - Jupyter Notebook
   - `snowflake-snowpark-python`, `snowflake-ml-python`, `transformers`, `torch`, `ray`, `ffmpeg`, `pandas`, `numpy`, `streamlit`
@@ -43,32 +52,32 @@ This project demonstrates a scalable, distributed media (audio and video) transc
 
 ---
 
-## Detailed Step-by-Step Instructions
+## Implementation Steps
 
-1. **Execute the SQL setup file in Snowflake worksheet**
-   - Open `snowflake_setup.sql` in your Snowflake worksheet and run all statements to create the required database, schema, warehouse, compute pool, and network integration.
+1. **Snowflake Setup**
+   - Open [`snowflake_setup.sql`](./snowflake_setup.sql) in your Snowflake worksheet and run all statements to create the required database, schema, warehouse, compute pool, and network integration.
 
-2. **Import the notebook file and run container on the created GPU pool compute**
-   - Import `distributed_media_transcription_pipeline.ipynb` into your Snowflake ML runtime or compatible Jupyter environment.
+2. **Import Notebook & Configure Compute**
+   - Import [`distributed_media_transcription_pipeline.ipynb`](./distributed_media_transcription_pipeline.ipynb) into your Snowflake ML runtime or compatible Jupyter environment.
    - Ensure the runtime/container is configured to use the GPU compute pool created in step 1.
 
-3. **Enable network external access integration for the notebook**
+3. **Enable Network External Access**
    - Make sure the external access integration (created by the SQL script) is enabled for your notebook/container session. This allows model downloads and outbound internet access.
 
-4. **Execute the first 2 cells in the notebook**
-   - Run the initial cells to import packages and set up the Snowflake session and stage.
+4. **Initialize Notebook**
+   - Run the first 2 cells to import packages and set up the Snowflake session and stage.
 
-5. **Upload all audio and video files to the stage created**
-   - Upload your MP4 video/audio files to the Snowflake stage (`AUDIO_FILES_STAGE`) created by the setup script. This can be done via the Snowflake UI, CLI, or programmatically.
+5. **Upload Media Files**
+   - Upload your MP4 audio/video files to the Snowflake stage (`AUDIO_FILES_STAGE`) created by the setup script. This can be done via the Snowflake UI, CLI, or programmatically.
 
-6. **Run the rest of the cells in the notebook**
+6. **Run the Pipeline**
    - Continue executing the remaining cells in order to process, transcribe, and store results. The pipeline will handle conversion, distributed inference, and result storage.
 
 ---
 
 ## Snowflake Setup
 
-1. Edit and run `snowflake_setup.sql` in your Snowflake worksheet or via the Snowflake CLI. This will:
+1. Edit and run [`snowflake_setup.sql`](./snowflake_setup.sql) in your Snowflake worksheet or via the Snowflake CLI. This will:
    - Create the database, schema, and warehouse
    - Set up a GPU compute pool
    - Configure network rules and external access integration
@@ -80,7 +89,7 @@ This project demonstrates a scalable, distributed media (audio and video) transc
 
 ## Running the Notebook
 
-1. Open `distributed_media_transcription_pipeline.ipynb` in Jupyter.
+1. Open [`distributed_media_transcription_pipeline.ipynb`](./distributed_media_transcription_pipeline.ipynb) in Jupyter.
 2. Ensure your Python environment has all required packages and is authenticated to Snowflake.
 3. Step through the notebook cells in order:
    - **Imports & Session:** Import packages and initialize Snowflake session.
