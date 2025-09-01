@@ -1,8 +1,17 @@
 <p align="center">
-  <img src="https://seeklogo.com/images/S/snowflake-logo-CE20F1A766-seeklogo.com.png" alt="Snowflake" height="60"/>
+  <a href="https://commons.wikimedia.org/wiki/File:Snowflake_Logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Snowflake_Logo.svg" alt="Snowflake" height="60"/>
+  </a>
   <img src="https://raw.githubusercontent.com/ray-project/ray/master/doc/source/images/ray_logo.png" alt="Ray" height="60"/>
   <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace" height="60"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="OpenAI" height="60"/>
+  <a href="https://en.m.wikipedia.org/wiki/File:OpenAI_Logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="OpenAI" height="60"/>
+  </a>
+</p>
+
+<p align="center" style="font-size: 0.9em;">
+  <a href="https://commons.wikimedia.org/wiki/File:Snowflake_Logo.svg">Snowflake Logo</a> |
+  <a href="https://en.m.wikipedia.org/wiki/File:OpenAI_Logo.svg">OpenAI Logo</a>
 </p>
 
 <h1 align="center">Distributed Multi-Node, Multi-GPU Media Transcription Pipeline</h1>
