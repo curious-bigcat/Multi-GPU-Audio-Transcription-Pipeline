@@ -1,6 +1,6 @@
-# Distributed Multi-Node, Multi-GPU Audio Transcription Pipeline
+# Distributed Multi-Node, Multi-GPU Media Transcription Pipeline
 
-This project demonstrates a scalable, distributed audio transcription pipeline using Snowflake, Ray, and the OpenAI Whisper model. It is designed for large-scale, multi-node, multi-GPU inferencing, and includes Hindi-to-English translation using GPT-4.1. The workflow is implemented in a Jupyter notebook and is supported by a Snowflake SQL setup script.
+This project demonstrates a scalable, distributed media (audio and video) transcription pipeline using Snowflake, Ray, and the OpenAI Whisper model. It is designed for large-scale, multi-node, multi-GPU inferencing, and includes Hindi-to-English translation using GPT-4.1. The workflow is implemented in a Jupyter notebook and is supported by a Snowflake SQL setup script.
 
 ---
 
@@ -46,10 +46,10 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
 ## Detailed Step-by-Step Instructions
 
 1. **Execute the SQL setup file in Snowflake worksheet**
-   - Open `setup.sql` in your Snowflake worksheet and run all statements to create the required database, schema, warehouse, compute pool, and network integration.
+   - Open `snowflake_setup.sql` in your Snowflake worksheet and run all statements to create the required database, schema, warehouse, compute pool, and network integration.
 
 2. **Import the notebook file and run container on the created GPU pool compute**
-   - Import `Audio Processing - Distributed Inferencing v2.ipynb` into your Snowflake ML runtime or compatible Jupyter environment.
+   - Import `distributed_media_transcription_pipeline.ipynb` into your Snowflake ML runtime or compatible Jupyter environment.
    - Ensure the runtime/container is configured to use the GPU compute pool created in step 1.
 
 3. **Enable network external access integration for the notebook**
@@ -58,7 +58,7 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
 4. **Execute the first 2 cells in the notebook**
    - Run the initial cells to import packages and set up the Snowflake session and stage.
 
-5. **Upload all video files to the stage created**
+5. **Upload all audio and video files to the stage created**
    - Upload your MP4 video/audio files to the Snowflake stage (`AUDIO_FILES_STAGE`) created by the setup script. This can be done via the Snowflake UI, CLI, or programmatically.
 
 6. **Run the rest of the cells in the notebook**
@@ -68,7 +68,7 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
 
 ## Snowflake Setup
 
-1. Edit and run `setup.sql` in your Snowflake worksheet or via the Snowflake CLI. This will:
+1. Edit and run `snowflake_setup.sql` in your Snowflake worksheet or via the Snowflake CLI. This will:
    - Create the database, schema, and warehouse
    - Set up a GPU compute pool
    - Configure network rules and external access integration
@@ -80,11 +80,11 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
 
 ## Running the Notebook
 
-1. Open `Audio Processing - Distributed Inferencing v2.ipynb` in Jupyter.
+1. Open `distributed_media_transcription_pipeline.ipynb` in Jupyter.
 2. Ensure your Python environment has all required packages and is authenticated to Snowflake.
 3. Step through the notebook cells in order:
    - **Imports & Session:** Import packages and initialize Snowflake session.
-   - **Stage Setup:** Create and use the Snowflake stage for audio files.
+   - **Stage Setup:** Create and use the Snowflake stage for audio and video files.
    - **File Handling:**
      - List MP4 files in the stage
      - Download locally
@@ -111,7 +111,7 @@ This project demonstrates a scalable, distributed audio transcription pipeline u
 ## Pipeline Steps
 
 1. **Upload MP4 Files:**
-   - Place your MP4 files in the Snowflake stage (`AUDIO_FILES_STAGE`).
+   - Place your MP4 audio or video files in the Snowflake stage (`AUDIO_FILES_STAGE`).
 2. **Convert to MP3:**
    - The notebook downloads MP4s, converts them to MP3 using ffmpeg, and uploads them back to the stage.
 3. **Distributed Processing:**
